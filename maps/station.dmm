@@ -1,0 +1,37 @@
+"a" = (/turf/closed/wall,/area/station)
+"b" = (/turf/open/floor,/area/station)
+"c" = (/turf/closed/wall,/area)
+"d" = (/turf/open/floor,/area)
+
+(1,1,1) = {"
+cccccccccccccccccccccccccccccc
+cddddddddddddddddddddddddddddc
+cddddddddddddddddddddddddddddc
+cddddddddddddddddddddddddddddc
+cddddddddddddddddddddddddddddc
+cddddddddddddddddcdddddddddddc
+cddddddddddddddddcdddddddddddc
+cddddddddddddddddcdddddddddddc
+cddddddddcddcddddcdddddddddddc
+cddddddddcddcddddcdddddddddddc
+cddddddddcddccccccccdddddddddc
+cddddddddcddcddcdddddddddddddc
+cccccccccccccddcdddddddddddddc
+cddddddddddddddcdddddddddddddc
+cddddddddddddddcccccccccdddddc
+abbbbbbbbbbbbbbcdddddddddddddc
+abbbbbbbbbbbbbbcccccdddddddddc
+abbbbbbbbbbbbbbddcdddddddddddc
+abbbbbbbbbbbbbbddddddddddddddc
+abbbbbbbbbbbbbbddccccccccccccc
+abbbbaaaaaaaabbddcdddddddddddc
+abbbbbbbbbbbbbbddddddddddddddc
+abbbbbbbbbbbbbbddcdddddddddddc
+abbbbbbbbbbbbbbddcdddddddddddc
+abbbbbbbbbbbbbbddcdddddddddddc
+abbbbbbbbbbbbbbddcdddddddddddc
+abbbbbbbbbbbbbbddcdddddddddddc
+abbbbbbbbbbbbbbddcdddddddddddc
+abbbbbbbbbbbbbbddcdddddddddddc
+aaaaaaaaaaaaaaaccccccccccccccc
+"}
