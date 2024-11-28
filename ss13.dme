@@ -23,6 +23,8 @@
 #include "code\datum\atom\movable\mob\mob.dm"
 #include "code\datum\atom\movable\obj\obj.dm"
 #include "code\datum\atom\turf\turf.dm"
+#include "code\datum\atom\turf\closed\closed.dm"
+#include "code\datum\atom\turf\open\open.dm"
 #include "maps\station.dmm"
 // END_INCLUDE
 
