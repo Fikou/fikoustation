@@ -8,10 +8,14 @@ GLOBAL_LIST_EMPTY(clients)
 		"S" = SOUTH,
 		"D" = EAST,
 	)
-	var/list/key_mapping = list(
+	var/list/key_mapping_mob = list(
 		"T" = "say",
+	)
+	var/list/key_mapping_living = list(
 		"Q" = "drop",
 		"X" = "switch_held",
+	)
+	var/list/key_mapping_human = list(
 	)
 	var/moving_dirs = NONE
 	var/free_move = 0
@@ -53,38 +57,21 @@ GLOBAL_LIST_EMPTY(clients)
 		screen += screen_object
 		screen_object.update_icon()
 
-/client/proc/handle_movement(dir = NONE)
-	if(mob.move_cooldown > world.time)
-		return
-	var/mob/living/living_mob = mob
-	if(istype(living_mob) && living_mob.dead)
-		return
-	var/cooldown_multiplier = 1
-	var/dir_to_move = dir || moving_dirs
-	if((moving_dirs & (NORTH|SOUTH)) == (NORTH|SOUTH))
-		dir_to_move &= ~(NORTH|SOUTH)
-	if((moving_dirs & (EAST|WEST)) == (EAST|WEST))
-		dir_to_move &= ~(EAST|WEST)
-	if(dir_to_move == NONE)
-		return
-	if(dir_to_move in GLOB.diagonals)
-		mob.Move(get_step(mob, dir_to_move & (NORTH|SOUTH)), dir_to_move & (NORTH|SOUTH))
-		dir_to_move &= ~(NORTH|SOUTH)
-		cooldown_multiplier = SQRT_2
-	mob.Move(get_step(mob, dir_to_move), dir_to_move)
-	mob.move_cooldown = world.time + mob.get_move_cooldown() * cooldown_multiplier
+/client/proc/handle_movement()
+	mob.walk_self(moving_dirs)
 
 /client/proc/set_move_dir(dir, state)
 	if(!(dir in GLOB.cardinals))
 		return
 	if(state)
-		if(!(moving_dirs & dir) && world.time > free_move)
+		if(moving_dirs && !(moving_dirs & dir) && world.time > free_move)
 			if((dir & (NORTH|SOUTH) && !(moving_dirs & (NORTH|SOUTH))) || (dir & (EAST|WEST) && !(moving_dirs & (EAST|WEST))))
 				mob.move_cooldown = world.time
-				handle_movement(dir)
+				mob.walk_self(dir)
 		moving_dirs |= dir
 	else
-		free_move = world.time + mob.get_move_cooldown() * SQRT_2
+		if(free_move <= world.time)
+			free_move = world.time + mob.get_move_cooldown() * SQRT_2
 		moving_dirs &= ~dir
 
 /client/verb/KeyDown(key as text)
@@ -92,30 +79,66 @@ GLOBAL_LIST_EMPTY(clients)
 	if(movement_keys[key])
 		set_move_dir(movement_keys[key], TRUE)
 		return
-	var/action = key_mapping[key]
-	switch(action)
-		if("say")
-			winset(src, "input", "focus=true")
-		if("drop")
-			if(!istype(mob, /mob/living))
+	var/action = key_mapping_mob[key]
+	if(action)
+		switch(action)
+			if("say")
+				winset(src, "input", "focus=true")
+		return
+	if(!istype(mob, /mob/living))
+		return
+	var/mob/living/living_mob = mob
+	action = key_mapping_living[key]
+	if(action)
+		switch(action)
+			if("drop")
+				if(living_mob.dead)
+					return
+				living_mob.drop_item()
+			if("switch_held")
+				if(living_mob.dead)
+					return
+				living_mob.switch_held()
+		return
+	if(!istype(mob, /mob/living/human))
+		return
+	var/mob/living/human/human_mob = mob
+	action = key_mapping_human[key]
+	if(action)
+		switch(action)
+			if("placeholder")
 				return
-			var/mob/living/living_mob = mob
-			living_mob.drop_item()
-		if("switch_held")
-			if(!istype(mob, /mob/living))
-				return
-			var/mob/living/living_mob = mob
-			living_mob.switch_held()
+		return
 
 /client/verb/KeyUp(key as text)
 	set hidden = TRUE
 	if(movement_keys[key])
 		set_move_dir(movement_keys[key], FALSE)
 		return
-	var/action = key_mapping[key]
-	switch(action)
-		if("say")
-			return
+	var/action = key_mapping_mob[key]
+	if(action)
+		switch(action)
+			if("placeholder")
+				return
+		return
+	if(!istype(mob, /mob/living))
+		return
+	var/mob/living/living_mob = mob
+	action = key_mapping_living[key]
+	if(action)
+		switch(action)
+			if("placeholder")
+				return
+		return
+	if(!istype(mob, /mob/living/human))
+		return
+	var/mob/living/human/human_mob = mob
+	action = key_mapping_human[key]
+	if(action)
+		switch(action)
+			if("placeholder")
+				return
+		return
 
 /client/verb/say(what as text)
 	set hidden = TRUE

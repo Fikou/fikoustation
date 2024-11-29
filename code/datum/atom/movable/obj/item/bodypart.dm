@@ -42,8 +42,8 @@
 		owner.build_icon()
 	owner = null
 
-/obj/item/bodypart/proc/build_icon(offsets)
-	var/image/built_icon = image(icon = 'icons/mob/human.dmi', icon_state = icon_state, pixel_x = offsets[1], pixel_y = offsets[2])
+/obj/item/bodypart/proc/build_icon()
+	var/image/built_icon = image(icon = 'icons/mob/human.dmi', icon_state = icon_state)
 	built_icon.color = color
 	return built_icon
 
@@ -54,9 +54,9 @@
 
 /obj/item/bodypart/head
 	name = "head"
-	desc = "Thankfully not yours."
 	icon_state = "head"
 	id = BODYPART_HEAD
+	pixel_y = -8
 
 /obj/item/bodypart/head/remove(special = FALSE)
 	if(!special)
@@ -65,7 +65,6 @@
 
 /obj/item/bodypart/chest
 	name = "chest"
-	desc = "Thanks for the mammaries."
 	icon_state = "chest"
 	id = BODYPART_CHEST
 
@@ -75,43 +74,32 @@
 		return
 	return ..()
 
-/obj/item/bodypart/chest/proc/get_offsets(bodypart_id)
-	switch(bodypart_id)
-		if(BODYPART_HEAD)
-			return list(0, 8)
-		if(BODYPART_CHEST)
-			return list(0, 0)
-		if(BODYPART_ARM_RIGHT)
-			return list(-6, -1)
-		if(BODYPART_ARM_LEFT)
-			return list(6, -1)
-		if(BODYPART_LEG_RIGHT)
-			return list(-2, -11)
-		if(BODYPART_LEG_LEFT)
-			return list(2, -11)
-
 /obj/item/bodypart/arm/right
 	name = "right arm"
-	desc = "Righteously gone."
 	icon_state = "arm_right"
 	id = BODYPART_ARM_RIGHT
 	holder_ui_type = /atom/movable/screen/inventory_slot/held_item/right_hand
+	pixel_x = 6
+	pixel_y = 1
 
 /obj/item/bodypart/arm/left
 	name = "left arm"
-	desc = "Left out."
 	icon_state = "arm_left"
 	id = BODYPART_ARM_LEFT
 	holder_ui_type = /atom/movable/screen/inventory_slot/held_item/left_hand
+	pixel_x = -6
+	pixel_y = 1
 
 /obj/item/bodypart/leg/right
 	name = "right leg"
-	desc = "Rightly so."
 	icon_state = "leg_right"
 	id = BODYPART_LEG_RIGHT
+	pixel_x = 2
+	pixel_y = 11
 
 /obj/item/bodypart/leg/left
 	name = "left leg"
-	desc = "Left behind."
 	icon_state = "leg_left"
 	id = BODYPART_LEG_LEFT
+	pixel_x = -2
+	pixel_y = 11
