@@ -1,0 +1,6 @@
+#define BODYPART_HEAD "head"
+#define BODYPART_CHEST "chest"
+#define BODYPART_ARM_RIGHT "arm_right"
+#define BODYPART_ARM_LEFT "arm_left"
+#define BODYPART_LEG_RIGHT "leg_right"
+#define BODYPART_LEG_LEFT "leg_left"

@@ -7,24 +7,34 @@
 
 // BEGIN_FILE_DIR
 #define FILE_DIR .
-#define FILE_DIR "icons"
-#define FILE_DIR "icons/mob"
-#define FILE_DIR "icons/obj"
-#define FILE_DIR "icons/turf"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
 // END_PREFERENCES
 
 // BEGIN_INCLUDE
-#include "code\world.dm"
+#include "skin.dmf"
+#include "code\__tgs.dm"
+#include "code\_world.dm"
+#include "code\helpers.dm"
+#include "code\_defines\__global.dm"
+#include "code\_defines\_basics.dm"
+#include "code\_defines\bodypart.dm"
 #include "code\datum\client.dm"
-#include "code\datum\atom\area\area.dm"
-#include "code\datum\atom\movable\mob\mob.dm"
-#include "code\datum\atom\movable\obj\obj.dm"
-#include "code\datum\atom\turf\turf.dm"
-#include "code\datum\atom\turf\closed\closed.dm"
-#include "code\datum\atom\turf\open\open.dm"
+#include "code\datum\atom\_atom.dm"
+#include "code\datum\atom\area\_area.dm"
+#include "code\datum\atom\movable\_movable.dm"
+#include "code\datum\atom\movable\mob\_mob.dm"
+#include "code\datum\atom\movable\mob\message.dm"
+#include "code\datum\atom\movable\obj\_obj.dm"
+#include "code\datum\atom\movable\obj\item\_item.dm"
+#include "code\datum\atom\movable\obj\item\bodypart.dm"
+#include "code\datum\atom\movable\obj\item\toolbox.dm"
+#include "code\datum\atom\movable\screen\screen.dm"
+#include "code\datum\atom\turf\_turf.dm"
+#include "code\datum\atom\turf\closed\_closed.dm"
+#include "code\datum\atom\turf\open\_open.dm"
+#include "code\tgs\includes.dm"
 #include "maps\station.dmm"
 // END_INCLUDE
 

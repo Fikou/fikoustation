@@ -2,35 +2,37 @@
 "b" = (/turf/open/floor,/area/station)
 "c" = (/turf/closed/wall,/area)
 "d" = (/turf/open/floor,/area)
+"e" = (/obj/item/toolbox,/turf/open/floor,/area)
+"f" = (/obj/item/toolbox,/turf/open/floor,/area/station)
 
 (1,1,1) = {"
 cccccccccccccccccccccccccccccc
 cddddddddddddddddddddddddddddc
+cdddddddddeddddddddddddddddddc
 cddddddddddddddddddddddddddddc
 cddddddddddddddddddddddddddddc
-cddddddddddddddddddddddddddddc
-cddddddddddddddddcdddddddddddc
-cddddddddddddddddcdddddddddddc
-cddddddddddddddddcdddddddddddc
-cddddddddcddcddddcdddddddddddc
-cddddddddcddcddddcdddddddddddc
-cddddddddcddccccccccdddddddddc
-cddddddddcddcddcdddddddddddddc
-cccccccccccccddcdddddddddddddc
+cdddeddddddddddddcdddddddddddc
+cddddddddddddddddcddddeddddddc
+cdddddeddddddddddcdddddddddddc
+cddddddddceecddddcdddddddddddc
+cddddddddceecddddcdddddddddddc
+cddddddddceeccccccccdddddddddc
+cddddddddceecddcddeddddddddddc
+cccccccccccccddcdddddddddedddc
 cddddddddddddddcdddddddddddddc
 cddddddddddddddcccccccccdddddc
-abbbbbbbbbbbbbbcdddddddddddddc
-abbbbbbbbbbbbbbcccccdddddddddc
-abbbbbbbbbbbbbbddcdddddddddddc
+abbbbbbbbbbbbbbceddddddddddddc
+abbbbbbbbbbbbbbcccccdddddedddc
+bbbbbbbbbbbbbbbddcdddddddddddc
+bbbbbbbbbbbbbbbddddddddddddddc
+bbbbbbbbbbbbbbbddccccccccccccc
+bbbbbaaaaaaaabbddcdddddddddddc
 abbbbbbbbbbbbbbddddddddddddddc
-abbbbbbbbbbbbbbddccccccccccccc
-abbbbaaaaaaaabbddcdddddddddddc
-abbbbbbbbbbbbbbddddddddddddddc
+abbbbbbbbbbbbbbddcdddddddedddc
 abbbbbbbbbbbbbbddcdddddddddddc
-abbbbbbbbbbbbbbddcdddddddddddc
-abbbbbbbbbbbbbbddcdddddddddddc
-abbbbbbbbbbbbbbddcdddddddddddc
-abbbbbbbbbbbbbbddcdddddddddddc
+abbbbabbbbbbbbbddcdddddddddddc
+abbbafabbbbbbbbddcdddddddddddc
+abbbbabbbbbbbbbddcdddddddddddc
 abbbbbbbbbbbbbbddcdddddddddddc
 abbbbbbbbbbbbbbddcdddddddddddc
 aaaaaaaaaaaaaaaccccccccccccccc

@@ -1,0 +1,235 @@
+macro "macro"
+	elem 
+		name = "Any"
+		command = "KeyDown [[*]]"
+	elem 
+		name = "Any+UP"
+		command = "KeyUp [[*]]"
+
+
+window "windowchat"
+	elem "windowchat"
+		type = MAIN
+		pos = 384,0
+		size = 640x540
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		is-pane = true
+		outer-size = 656x556
+		outer-pos = 384,0
+		inner-size = 640x540
+		inner-pos = 8,8
+		screen-size = 1920x1030
+	elem "info"
+		type = INFO
+		pos = 0,0
+		size = 640x136
+		anchor1 = 0,0
+		anchor2 = 100,25
+		is-default = true
+		border = sunken
+		saved-params = ""
+		tab-background-color = none
+	elem "input"
+		type = INPUT
+		pos = 0,528
+		size = 640x12
+		anchor1 = 0,98
+		anchor2 = 100,99
+		is-default = true
+		border = sunken
+		saved-params = ""
+		command = "say"
+	elem "output"
+		type = OUTPUT
+		pos = 0,136
+		size = 640x392
+		anchor1 = 0,25
+		anchor2 = 100,98
+		is-default = true
+		border = sunken
+		saved-params = "max-lines"
+
+window "windowgame"
+	elem "windowgame"
+		type = MAIN
+		pos = 384,0
+		size = 608x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		outer-size = 624x496
+		outer-pos = 384,0
+		inner-size = 608x480
+		inner-pos = 8,8
+		screen-size = 1920x1030
+	elem "childgame"
+		type = CHILD
+		pos = 0,0
+		size = 608x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = none
+		saved-params = "splitter"
+		left = "windowui"
+		right = "windowmap"
+		is-vert = true
+		splitter = 15.789474
+		show-splitter = false
+
+window "windowgamemap"
+	elem "windowgamemap"
+		type = MAIN
+		pos = 384,0
+		size = 480x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		is-default = true
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		is-pane = true
+		outer-size = 496x496
+		outer-pos = 384,0
+		inner-size = 480x480
+		inner-pos = 8,8
+		screen-size = 1920x1030
+	elem "map"
+		type = MAP
+		pos = 0,0
+		size = 480x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		is-default = true
+		right-click = true
+		saved-params = "zoom;letterbox;zoom-mode"
+		zoom-mode = distort
+
+window "windowmain"
+	elem "windowmain"
+		type = MAIN
+		pos = 384,0
+		size = 960x540
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		is-default = true
+		saved-params = "pos;size;is-minimized;is-maximized;is-fullscreen"
+		title = "Space Station 13"
+		statusbar = false
+		is-maximized = true
+		macro = "macro"
+		outer-size = 1938x1048
+		outer-pos = -9,-9
+		inner-size = 1920x1001
+		inner-pos = 9,38
+		screen-size = 1920x1030
+	elem "child"
+		type = CHILD
+		pos = 0,0
+		size = 960x540
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = none
+		saved-params = "splitter"
+		left = "windowgame"
+		right = "windowchat"
+		is-vert = true
+		splitter = 63.333328
+
+window "windowmap"
+	elem "windowmap"
+		type = MAIN
+		pos = 384,0
+		size = 512x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		is-pane = true
+		outer-size = 528x496
+		outer-pos = 384,0
+		inner-size = 512x480
+		inner-pos = 8,8
+		screen-size = 1920x1030
+	elem "childmap"
+		type = CHILD
+		pos = 0,0
+		size = 512x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = none
+		saved-params = "splitter"
+		left = "windowgamemap"
+		right = "windowui2"
+		is-vert = true
+		splitter = 93.750000
+		show-splitter = false
+
+window "windowui"
+	elem "windowui"
+		type = MAIN
+		pos = 384,0
+		size = 128x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "ui"
+		titlebar = false
+		statusbar = false
+		is-pane = true
+		outer-size = 144x496
+		outer-pos = 384,0
+		inner-size = 128x480
+		inner-pos = 8,8
+		screen-size = 1920x1030
+	elem "ui"
+		type = MAP
+		pos = 0,0
+		size = 128x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		saved-params = "zoom;letterbox;zoom-mode"
+		zoom-mode = distort
+
+window "windowui2"
+	elem "windowui2"
+		type = MAIN
+		pos = 384,0
+		size = 32x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		is-pane = true
+		outer-size = 48x496
+		outer-pos = 384,0
+		inner-size = 32x480
+		inner-pos = 8,8
+		screen-size = 1920x1030
+	elem "ui2"
+		type = MAP
+		pos = 0,0
+		size = 32x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		saved-params = "zoom;letterbox;zoom-mode"
+		zoom-mode = distort
+
